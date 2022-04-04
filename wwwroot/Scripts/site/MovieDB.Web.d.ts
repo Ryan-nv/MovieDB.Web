@@ -506,11 +506,19 @@ declare namespace MovieDB.MovieData {
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
         Runtime: Serenity.IntegerEditor;
+        Kind: Serenity.EnumEditor;
     }
     class MovieForm extends Serenity.PrefixedContext {
         static formKey: string;
         private static init;
         constructor(prefix: string);
+    }
+}
+declare namespace MovieDB.MovieData {
+    enum MovieKind {
+        Film = 1,
+        TVSeries = 2,
+        MiniSeries = 3
     }
 }
 declare namespace MovieDB.MovieData {
@@ -522,6 +530,7 @@ declare namespace MovieDB.MovieData {
         Year?: number;
         ReleaseDate?: string;
         Runtime?: number;
+        Kind?: MovieKind;
     }
     namespace MovieRow {
         const idProperty = "MovieId";
@@ -538,7 +547,8 @@ declare namespace MovieDB.MovieData {
             Storyline = "Storyline",
             Year = "Year",
             ReleaseDate = "ReleaseDate",
-            Runtime = "Runtime"
+            Runtime = "Runtime",
+            Kind = "Kind"
         }
     }
 }

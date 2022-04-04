@@ -15,7 +15,7 @@ namespace MovieDB.MovieData
     public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
     {
         //this script manages each entity int the table.
-        
+
         [DisplayName("Movie Id"), Identity, IdProperty]
         public int? MovieId
         {
@@ -64,6 +64,12 @@ namespace MovieDB.MovieData
             get => fields.Runtime[this];
             set => fields.Runtime[this] = value;
         }
+        [DisplayName("Kind"), NotNull]
+        public MovieKind? Kind
+        {
+            get => (MovieKind?)fields.Kind[this];
+            set => fields.Kind[this] = (Int32?)value;  
+        }
 
         public MovieRow()
             : base()
@@ -84,6 +90,7 @@ namespace MovieDB.MovieData
             public Int32Field Year;
             public DateTimeField ReleaseDate;
             public Int32Field Runtime;
+            public Int32Field Kind;
         }
     }
 }

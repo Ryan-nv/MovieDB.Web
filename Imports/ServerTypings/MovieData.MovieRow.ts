@@ -7,6 +7,7 @@
         Year?: number;
         ReleaseDate?: string;
         Runtime?: number;
+        Kind?: MovieKind;
     }
 
     export namespace MovieRow {
@@ -25,7 +26,8 @@
             Storyline = "Storyline",
             Year = "Year",
             ReleaseDate = "ReleaseDate",
-            Runtime = "Runtime"
+            Runtime = "Runtime",
+            Kind = "Kind"
         }
     }
 }

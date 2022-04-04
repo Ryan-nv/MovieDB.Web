@@ -6,6 +6,7 @@
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
         Runtime: Serenity.IntegerEditor;
+        Kind: Serenity.EnumEditor;
     }
 
     export class MovieForm extends Serenity.PrefixedContext {
@@ -23,6 +24,7 @@
                 var w1 = s.TextAreaEditor;
                 var w2 = s.IntegerEditor;
                 var w3 = s.DateEditor;
+                var w4 = s.EnumEditor;
 
                 Q.initFormType(MovieForm, [
                     'Title', w0,
@@ -30,7 +32,8 @@
                     'Storyline', w1,
                     'Year', w2,
                     'ReleaseDate', w3,
-                    'Runtime', w2
+                    'Runtime', w2,
+                    'Kind', w4
                 ]);
             }
         }
