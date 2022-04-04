@@ -13,6 +13,12 @@
       "Key": "Default",
       "Tables": [
         {
+          "Tablename": "Genre",
+          "Identifier": "Genre",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "Movie",
           "Identifier": "Movie",
           "Module": "MovieData",

@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Modules\\MovieData\\Genre\\GenreIndex.cshtml",
+      "TargetPath": "Modules\\MovieData\\Genre\\GenreIndex.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Modules\\Membership\\Account\\AccountLogin.cshtml",
       "TargetPath": "Modules\\Membership\\Account\\AccountLogin.cshtml",
       "FileKind": "mvc"

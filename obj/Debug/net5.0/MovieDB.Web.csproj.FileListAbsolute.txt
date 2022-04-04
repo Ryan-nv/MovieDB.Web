@@ -481,3 +481,4 @@ C:\Projects\WebApp\Serenity\MovieDB\MovieDB.Web\obj\Debug\net5.0\ref\MovieDB.Web
 C:\Projects\WebApp\Serenity\MovieDB\MovieDB.Web\obj\Debug\net5.0\MovieDB.Web.pdb
 C:\Projects\WebApp\Serenity\MovieDB\MovieDB.Web\obj\Debug\net5.0\MovieDB.Web.genruntimeconfig.cache
 C:\Projects\WebApp\Serenity\MovieDB\MovieDB.Web\obj\Debug\net5.0\Razor\Modules\MovieData\Movie\MovieIndex.cshtml.g.cs
+C:\Projects\WebApp\Serenity\MovieDB\MovieDB.Web\obj\Debug\net5.0\Razor\Modules\MovieData\Genre\GenreIndex.cshtml.g.cs

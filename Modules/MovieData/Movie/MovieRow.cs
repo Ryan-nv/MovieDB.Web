@@ -14,8 +14,6 @@ namespace MovieDB.MovieData
     [ModifyPermission("Administration:General")]
     public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
     {
-        //this script manages each entity int the table.
-
         [DisplayName("Movie Id"), Identity, IdProperty]
         public int? MovieId
         {
@@ -37,14 +35,14 @@ namespace MovieDB.MovieData
             set => fields.Description[this] = value;
         }
 
-        [DisplayName("Storyline"), Size(1500),QuickSearch(SearchType.StartsWith)]
+        [DisplayName("Storyline"), Size(1500), QuickSearch(SearchType.StartsWith)]
         public string Storyline
         {
             get => fields.Storyline[this];
             set => fields.Storyline[this] = value;
         }
 
-        [DisplayName("Year"), QuickSearch(SearchType.Equals ,numericOnly: 1)]
+        [DisplayName("Year"), QuickSearch(SearchType.Equals, numericOnly: 1)]
         public int? Year
         {
             get => fields.Year[this];
@@ -58,17 +56,33 @@ namespace MovieDB.MovieData
             set => fields.ReleaseDate[this] = value;
         }
 
-        [DisplayName("Runtime (mins)")]
+        [DisplayName("Runtime")]
         public int? Runtime
         {
             get => fields.Runtime[this];
             set => fields.Runtime[this] = value;
         }
-        [DisplayName("Kind"), NotNull]
-        public MovieKind? Kind
+
+        [DisplayName("Kind"), NotNull, QuickSearch]
+        public int? Kind
         {
-            get => (MovieKind?)fields.Kind[this];
-            set => fields.Kind[this] = (Int32?)value;  
+            get => fields.Kind[this];
+            set => fields.Kind[this] = value;
+        }
+
+        [DisplayName("Genre"), ForeignKey("Genre", "GenreId"), LeftJoin("jGenre"), TextualField("GenreName")]
+        [LookupEditor(typeof(GenreRow), InplaceAdd = true)]
+        public int? Genre
+        {
+            get => fields.Genre[this];
+            set => fields.Genre[this] = value;
+        }
+
+        [DisplayName("Genre Name"), Expression("jGenre.[Name]")]
+        public string GenreName
+        {
+            get => fields.GenreName[this];
+            set => fields.GenreName[this] = value;
         }
 
         public MovieRow()
@@ -91,6 +105,8 @@ namespace MovieDB.MovieData
             public DateTimeField ReleaseDate;
             public Int32Field Runtime;
             public Int32Field Kind;
+            public Int32Field Genre;
+            public StringField GenreName;
         }
     }
 }
