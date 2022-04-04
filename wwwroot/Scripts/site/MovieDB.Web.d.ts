@@ -559,13 +559,49 @@ declare namespace MovieDB.MovieData {
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
         Runtime: Serenity.IntegerEditor;
-        Genre: Serenity.LookupEditor;
+        Genres: Serenity.LookupEditor;
         Kind: Serenity.EnumEditor;
     }
     class MovieForm extends Serenity.PrefixedContext {
         static formKey: string;
         private static init;
         constructor(prefix: string);
+    }
+}
+declare namespace MovieDB.MovieData {
+    interface MovieGenresRow {
+        MovieGenreId?: number;
+        MovieId?: number;
+        GenreId?: number;
+        MovieTitle?: string;
+        MovieDescription?: string;
+        MovieStoryline?: string;
+        MovieYear?: number;
+        MovieReleaseDate?: string;
+        MovieRuntime?: number;
+        MovieKind?: number;
+        GenreName?: string;
+    }
+    namespace MovieGenresRow {
+        const idProperty = "MovieGenreId";
+        const localTextPrefix = "MovieData.MovieGenres";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            MovieGenreId = "MovieGenreId",
+            MovieId = "MovieId",
+            GenreId = "GenreId",
+            MovieTitle = "MovieTitle",
+            MovieDescription = "MovieDescription",
+            MovieStoryline = "MovieStoryline",
+            MovieYear = "MovieYear",
+            MovieReleaseDate = "MovieReleaseDate",
+            MovieRuntime = "MovieRuntime",
+            MovieKind = "MovieKind",
+            GenreName = "GenreName"
+        }
     }
 }
 declare namespace MovieDB.MovieData {
@@ -585,8 +621,7 @@ declare namespace MovieDB.MovieData {
         ReleaseDate?: string;
         Runtime?: number;
         Kind?: number;
-        Genre?: number;
-        GenreName?: string;
+        Genres?: number[];
     }
     namespace MovieRow {
         const idProperty = "MovieId";
@@ -605,8 +640,7 @@ declare namespace MovieDB.MovieData {
             ReleaseDate = "ReleaseDate",
             Runtime = "Runtime",
             Kind = "Kind",
-            Genre = "Genre",
-            GenreName = "GenreName"
+            Genres = "Genres"
         }
     }
 }
@@ -892,6 +926,11 @@ declare namespace MovieDB.MovieData {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace MovieDB.MovieData {
+    class GenreListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
     }
 }
 declare namespace MovieDB.MovieData {

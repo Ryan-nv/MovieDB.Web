@@ -25,8 +25,8 @@ namespace MovieDB.MovieData.Columns
         public DateTime ReleaseDate { get; set; }
         [EditLink, DisplayName("Runtime in Minutes"), Width(150), AlignCenter]
         public int Runtime { get; set; }
-        //[EditLink, Width(150)]
-        public string GenreName { get; set; }
+        [EditLink, Width(200), GenreListFormatter]
+        public List<Int32> Genres { get; set; }
         [EditLink, Width(100)]
         public MovieKind Kind { get; set; }
     }

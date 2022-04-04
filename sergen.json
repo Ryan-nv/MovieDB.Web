@@ -23,6 +23,12 @@
           "Identifier": "Movie",
           "Module": "MovieData",
           "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "MovieGenres",
+          "Identifier": "MovieGenres",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
         }
       ]
     }

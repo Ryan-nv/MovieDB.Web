@@ -19,7 +19,7 @@ namespace MovieDB.MovieData.Forms
         public int Year { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int Runtime { get; set; }
-        public Int32? Genre { get; set; }
+        public List<Int32> Genres { get; set; }
         public MovieKind Kind { get; set; }
     }
 }
