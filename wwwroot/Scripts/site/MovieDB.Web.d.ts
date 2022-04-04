@@ -501,8 +501,8 @@ declare namespace MovieDB.MovieData {
 declare namespace MovieDB.MovieData {
     interface MovieForm {
         Title: Serenity.StringEditor;
-        Description: Serenity.StringEditor;
-        Storyline: Serenity.StringEditor;
+        Description: Serenity.TextAreaEditor;
+        Storyline: Serenity.TextAreaEditor;
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
         Runtime: Serenity.IntegerEditor;
@@ -824,5 +824,6 @@ declare namespace MovieDB.MovieData {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected GetQuickSearchField(): Serenity.QuickSearchField[];
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 namespace MovieDB.MovieData {
 
+    import fld = MovieRow.Fields;
     @Serenity.Decorators.registerClass()
     export class MovieGrid extends Serenity.EntityGrid<MovieRow, any> {
         protected getColumnsKey() { return MovieColumns.columnsKey; }
@@ -12,6 +13,17 @@ namespace MovieDB.MovieData {
 
         constructor(container: JQuery) {
             super(container);
+        }
+
+        protected GetQuickSearchField() : Serenity.QuickSearchField[] {
+            var txt = (s) => Q.text(`DB.${MovieRow.localTextPrefix}.${s}`).toLowerCase();
+
+            return [
+                { name: "", title: "all" },
+                { name: fld.Description, title: txt(fld.Description) },
+                { name: fld.Storyline, title: txt(fld.Storyline)},
+                { name: fld.Year, title: txt(fld.Year)}
+            ];  
         }
     }
 }

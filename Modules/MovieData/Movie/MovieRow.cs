@@ -14,6 +14,8 @@ namespace MovieDB.MovieData
     [ModifyPermission("Administration:General")]
     public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
     {
+        //this script manages each entity int the table.
+        
         [DisplayName("Movie Id"), Identity, IdProperty]
         public int? MovieId
         {
@@ -28,21 +30,21 @@ namespace MovieDB.MovieData
             set => fields.Title[this] = value;
         }
 
-        [DisplayName("Description"), Size(1000)]
+        [DisplayName("Description"), Size(1000), QuickSearch]
         public string Description
         {
             get => fields.Description[this];
             set => fields.Description[this] = value;
         }
 
-        [DisplayName("Storyline"), Size(1500)]
+        [DisplayName("Storyline"), Size(1500),QuickSearch(SearchType.StartsWith)]
         public string Storyline
         {
             get => fields.Storyline[this];
             set => fields.Storyline[this] = value;
         }
 
-        [DisplayName("Year")]
+        [DisplayName("Year"), QuickSearch(SearchType.Equals ,numericOnly: 1)]
         public int? Year
         {
             get => fields.Year[this];
@@ -56,7 +58,7 @@ namespace MovieDB.MovieData
             set => fields.ReleaseDate[this] = value;
         }
 
-        [DisplayName("Runtime")]
+        [DisplayName("Runtime (mins)")]
         public int? Runtime
         {
             get => fields.Runtime[this];
