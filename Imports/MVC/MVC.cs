@@ -82,6 +82,16 @@ namespace MVC
             {
                 public const string MovieIndex = "~/Modules/MovieData/Movie/MovieIndex.cshtml";
             }
+
+            public static class MovieCast
+            {
+                public const string MovieCastIndex = "~/Modules/MovieData/MovieCast/MovieCastIndex.cshtml";
+            }
+
+            public static class Person
+            {
+                public const string PersonIndex = "~/Modules/MovieData/Person/PersonIndex.cshtml";
+            }
         }
 
         public static class Shared

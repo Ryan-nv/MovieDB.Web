@@ -13,9 +13,6 @@ namespace MovieDB.MovieData
 
     public class MovieSaveHandler : SaveRequestHandler<MyRow, MyRequest, MyResponse>, IMovieSaveHandler
     {
-        public MovieSaveHandler(IRequestContext context)
-             : base(context)
-        {
-        }
+        public MovieSaveHandler(IRequestContext context) : base(context) {}
     }
 }

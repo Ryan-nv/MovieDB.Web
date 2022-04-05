@@ -1,5 +1,4 @@
-﻿
-namespace MovieDB.MovieData {
+﻿namespace MovieDB.MovieData {
 
     import fld = MovieRow.Fields;
     @Serenity.Decorators.registerClass()

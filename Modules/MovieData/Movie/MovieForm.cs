@@ -15,6 +15,7 @@ namespace MovieDB.MovieData.Forms
         public string Title { get; set; }
         //configure textarea row
         [TextAreaEditor(Rows = 3)] public string Description { get; set; }
+        [MovieCastEditor] public List<MovieCastRow> CastList { get; set; }
         [TextAreaEditor(Rows = 8)] public string Storyline { get; set; }
         public int Year { get; set; }
         public DateTime ReleaseDate { get; set; }

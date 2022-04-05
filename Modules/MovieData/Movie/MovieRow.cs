@@ -70,13 +70,20 @@ namespace MovieDB.MovieData
             get => fields.Kind[this];
             set => fields.Kind[this] = value;
         }
-        [DisplayName("Genres")]
+        [DisplayName("Genres"), QuickFilter]
         [LookupEditor(typeof(GenreRow),Multiple = true, InplaceAdd = true), NotMapped]
         [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreId")]
         public List<Int32> Genres
         {
             get => fields.Genres[this];
             set => fields.Genres[this] = value;
+        }
+        [MasterDetailRelation(foreignKey: "MovieId", IncludeColumns = "PersonFullName")]
+        [DisplayName("Actor/Actress")]
+        public List<MovieCastRow> CastList 
+        {
+            get => fields.CastList[this];
+            set => fields.CastList[this] = value;
         }
 
         public MovieRow()
@@ -100,6 +107,7 @@ namespace MovieDB.MovieData
             public Int32Field Runtime;
             public Int32Field Kind;
             public ListField<Int32> Genres;
+            public RowListField<MovieCastRow> CastList;
         }
     }
 }

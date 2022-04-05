@@ -13,9 +13,6 @@ namespace MovieDB.MovieData
 
     public class MovieRetrieveHandler : RetrieveRequestHandler<MyRow, MyRequest, MyResponse>, IMovieRetrieveHandler
     {
-        public MovieRetrieveHandler(IRequestContext context)
-             : base(context)
-        {
-        }
+        public MovieRetrieveHandler(IRequestContext context) : base(context){}
     }
 }

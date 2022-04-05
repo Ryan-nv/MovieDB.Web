@@ -45,7 +45,6 @@
     <PackageReference Include="Serenity.Net.Web" Version="5.2.4" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Serenity.Extensions" Version="5.2.2" />
     <!--<if:ThemeSamples>-->
     <PackageReference Include="Serenity.Demo.ThemeSamples" Version="5.2.2" />
     <!--</if:ThemeSamples>-->

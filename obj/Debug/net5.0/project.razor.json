@@ -15644,6 +15644,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Modules\\MovieData\\MovieCast\\MovieCastIndex.cshtml",
+      "TargetPath": "Modules\\MovieData\\MovieCast\\MovieCastIndex.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15696,6 +15701,11 @@
     {
       "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Modules\\Administration\\Translation\\TranslationIndex.cshtml",
       "TargetPath": "Modules\\Administration\\Translation\\TranslationIndex.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Projects\\WebApp\\Serenity\\MovieDB\\MovieDB.Web\\Modules\\MovieData\\Person\\PersonIndex.cshtml",
+      "TargetPath": "Modules\\MovieData\\Person\\PersonIndex.cshtml",
       "FileKind": "mvc"
     },
     {
