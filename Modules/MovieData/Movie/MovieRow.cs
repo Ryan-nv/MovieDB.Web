@@ -3,6 +3,7 @@ using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 
@@ -12,10 +13,9 @@ namespace MovieDB.MovieData
     [DisplayName("Movie"), InstanceName("Movie")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript("MovieDB.MovieData")]
     public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
     {
-        //this script manages each entity int the table.
-
         [DisplayName("Movie Id"), Identity, IdProperty]
         public int? MovieId
         {
@@ -37,14 +37,14 @@ namespace MovieDB.MovieData
             set => fields.Description[this] = value;
         }
 
-        [DisplayName("Storyline"), Size(1500),QuickSearch(SearchType.StartsWith)]
+        [DisplayName("Storyline"), Size(1500), QuickSearch(SearchType.StartsWith)]
         public string Storyline
         {
             get => fields.Storyline[this];
             set => fields.Storyline[this] = value;
         }
 
-        [DisplayName("Year"), QuickSearch(SearchType.Equals ,numericOnly: 1)]
+        [DisplayName("Year"), QuickSearch(SearchType.Equals, numericOnly: 1)]
         public int? Year
         {
             get => fields.Year[this];
@@ -58,17 +58,45 @@ namespace MovieDB.MovieData
             set => fields.ReleaseDate[this] = value;
         }
 
-        [DisplayName("Runtime (mins)")]
+        [DisplayName("Runtime")]
         public int? Runtime
         {
             get => fields.Runtime[this];
             set => fields.Runtime[this] = value;
         }
-        [DisplayName("Kind"), NotNull]
-        public MovieKind? Kind
+
+        [DisplayName("Kind"), NotNull, QuickSearch]
+        public int? Kind
         {
-            get => (MovieKind?)fields.Kind[this];
-            set => fields.Kind[this] = (Int32?)value;  
+            get => fields.Kind[this];
+            set => fields.Kind[this] = value;
+        }
+        [DisplayName("Genres"), QuickFilter]
+        [LookupEditor(typeof(GenreRow), Multiple = true, InplaceAdd = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreId")]
+        public List<Int32> Genres
+        {
+            get => fields.Genres[this];
+            set => fields.Genres[this] = value;
+        }
+        [MasterDetailRelation(foreignKey: "MovieId", IncludeColumns = "PersonFullName")]
+        [DisplayName("Actor/Actress")]
+        public List<MovieCastRow> CastList
+        {
+            get => fields.CastList[this];
+            set => fields.CastList[this] = value;
+        }
+        [DisplayName("Primary image"), ImageUploadEditor(FilenameFormat = "Movie/PrimaryImage/~")]
+        public string Primary_Image
+        {
+            get => fields.Primary_Image[this];
+            set => fields.Primary_Image[this] = value;
+        }
+        [DisplayName("Gallery Image"), MultipleImageUploadEditor(FilenameFormat = "Movie/GalleryImage/~")]
+        public string Galery_Image
+        {
+            get => fields.Galery_Image[this];
+            set => fields.Galery_Image[this] = value;
         }
 
         public MovieRow()
@@ -91,6 +119,10 @@ namespace MovieDB.MovieData
             public DateTimeField ReleaseDate;
             public Int32Field Runtime;
             public Int32Field Kind;
+            public ListField<Int32> Genres;
+            public RowListField<MovieCastRow> CastList;
+            public StringField Primary_Image;
+            public StringField Galery_Image;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MovieDB.MovieData
     public class MovieDeleteHandler : DeleteRequestHandler<MyRow, MyRequest, MyResponse>, IMovieDeleteHandler
     {
         public MovieDeleteHandler(IRequestContext context)
-             : base(context)
+            : base(context)
         {
         }
     }

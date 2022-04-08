@@ -13,8 +13,32 @@
       "Key": "Default",
       "Tables": [
         {
+          "Tablename": "Genre",
+          "Identifier": "Genre",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "Movie",
           "Identifier": "Movie",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "MovieCast",
+          "Identifier": "MovieCast",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "MovieGenres",
+          "Identifier": "MovieGenres",
+          "Module": "MovieData",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "Person",
+          "Identifier": "Person",
           "Module": "MovieData",
           "PermissionKey": "Administration:General"
         }
