@@ -23,6 +23,8 @@ namespace MovieDB.MovieData.Forms
         /// So I changed the in memory detail editor with normal form of cast list. 
         /// </summary>
         [TextAreaEditor(Rows = 8)] public string Storyline { get; set; }
+        public string Primary_Image { get; set; }
+        public string Galery_Image { get; set; }
         public int Year { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int Runtime { get; set; }

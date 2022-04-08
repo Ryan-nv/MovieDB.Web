@@ -70,6 +70,19 @@ namespace MovieDB.MovieData
             set => fields.Height[this] = value;
         }
 
+        [DisplayName("Primary image"), ImageUploadEditor(FilenameFormat = "Person/PrimaryImage/~") ]
+        public string Primary_Image
+        {
+            get => fields.Primary_Image[this];
+            set => fields.Primary_Image[this] = value;
+        }
+        [DisplayName("Gallery Image"), MultipleImageUploadEditor(FilenameFormat = "Person/GalleryImage/~")]
+        public string Galery_Image
+        {
+            get => fields.Galery_Image[this];
+            set => fields.Galery_Image[this] = value;
+        }
+
         public PersonRow()
             : base()
         {
@@ -90,6 +103,8 @@ namespace MovieDB.MovieData
             public StringField BirthPlace;
             public Int32Field Gender;
             public Int32Field Height;
+            public StringField Primary_Image;
+            public StringField Galery_Image;
         }
     }
 }

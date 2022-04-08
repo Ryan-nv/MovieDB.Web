@@ -2,6 +2,8 @@
     export interface PersonForm {
         FirstName: Serenity.StringEditor;
         Lastname: Serenity.StringEditor;
+        Primary_Image: Serenity.ImageUploadEditor;
+        Galery_Image: Serenity.MultipleImageUploadEditor;
         BirthDate: Serenity.DateEditor;
         BirthPlace: Serenity.StringEditor;
         Gender: Serenity.EnumEditor;
@@ -20,17 +22,21 @@
 
                 var s = Serenity;
                 var w0 = s.StringEditor;
-                var w1 = s.DateEditor;
-                var w2 = s.EnumEditor;
-                var w3 = s.IntegerEditor;
+                var w1 = s.ImageUploadEditor;
+                var w2 = s.MultipleImageUploadEditor;
+                var w3 = s.DateEditor;
+                var w4 = s.EnumEditor;
+                var w5 = s.IntegerEditor;
 
                 Q.initFormType(PersonForm, [
                     'FirstName', w0,
                     'Lastname', w0,
-                    'BirthDate', w1,
+                    'Primary_Image', w1,
+                    'Galery_Image', w2,
+                    'BirthDate', w3,
                     'BirthPlace', w0,
-                    'Gender', w2,
-                    'Height', w3
+                    'Gender', w4,
+                    'Height', w5
                 ]);
             }
         }

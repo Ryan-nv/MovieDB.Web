@@ -15,6 +15,8 @@ namespace MovieDB.MovieData.Forms
         //public string FullName { get; set; }
         public string FirstName { get; set; }
         public string Lastname { get; set; }
+        public string Primary_Image { get; set; }
+        public string Galery_Image { get; set; }
         public DateTime BirthDate { get; set; }
         public string BirthPlace { get; set; }
         public Gender Gender { get; set; }

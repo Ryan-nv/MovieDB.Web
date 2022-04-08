@@ -8,6 +8,8 @@
         BirthPlace?: string;
         Gender?: Gender;
         Height?: number;
+        Primary_Image?: string;
+        Galery_Image?: string;
     }
 
     export namespace PersonRow {
@@ -32,7 +34,9 @@
             BirthDate = "BirthDate",
             BirthPlace = "BirthPlace",
             Gender = "Gender",
-            Height = "Height"
+            Height = "Height",
+            Primary_Image = "Primary_Image",
+            Galery_Image = "Galery_Image"
         }
     }
 }

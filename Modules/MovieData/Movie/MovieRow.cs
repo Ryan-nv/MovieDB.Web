@@ -72,7 +72,7 @@ namespace MovieDB.MovieData
             set => fields.Kind[this] = value;
         }
         [DisplayName("Genres"), QuickFilter]
-        [LookupEditor(typeof(GenreRow),Multiple = true, InplaceAdd = true), NotMapped]
+        [LookupEditor(typeof(GenreRow), Multiple = true, InplaceAdd = true), NotMapped]
         [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreId")]
         public List<Int32> Genres
         {
@@ -81,10 +81,22 @@ namespace MovieDB.MovieData
         }
         [MasterDetailRelation(foreignKey: "MovieId", IncludeColumns = "PersonFullName")]
         [DisplayName("Actor/Actress")]
-        public List<MovieCastRow> CastList 
+        public List<MovieCastRow> CastList
         {
             get => fields.CastList[this];
             set => fields.CastList[this] = value;
+        }
+        [DisplayName("Primary image"), ImageUploadEditor(FilenameFormat = "Movie/PrimaryImage/~")]
+        public string Primary_Image
+        {
+            get => fields.Primary_Image[this];
+            set => fields.Primary_Image[this] = value;
+        }
+        [DisplayName("Gallery Image"), MultipleImageUploadEditor(FilenameFormat = "Movie/GalleryImage/~")]
+        public string Galery_Image
+        {
+            get => fields.Galery_Image[this];
+            set => fields.Galery_Image[this] = value;
         }
 
         public MovieRow()
@@ -109,6 +121,8 @@ namespace MovieDB.MovieData
             public Int32Field Kind;
             public ListField<Int32> Genres;
             public RowListField<MovieCastRow> CastList;
+            public StringField Primary_Image;
+            public StringField Galery_Image;
         }
     }
 }

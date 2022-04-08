@@ -648,6 +648,8 @@ declare namespace MovieDB.MovieData {
         Title: Serenity.StringEditor;
         Description: Serenity.TextAreaEditor;
         Storyline: Serenity.TextAreaEditor;
+        Primary_Image: Serenity.ImageUploadEditor;
+        Galery_Image: Serenity.MultipleImageUploadEditor;
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
         Runtime: Serenity.IntegerEditor;
@@ -715,6 +717,8 @@ declare namespace MovieDB.MovieData {
         Kind?: number;
         Genres?: number[];
         CastList?: MovieCastRow[];
+        Primary_Image?: string;
+        Galery_Image?: string;
     }
     namespace MovieRow {
         const idProperty = "MovieId";
@@ -736,7 +740,9 @@ declare namespace MovieDB.MovieData {
             Runtime = "Runtime",
             Kind = "Kind",
             Genres = "Genres",
-            CastList = "CastList"
+            CastList = "CastList",
+            Primary_Image = "Primary_Image",
+            Galery_Image = "Galery_Image"
         }
     }
 }
@@ -766,6 +772,8 @@ declare namespace MovieDB.MovieData {
     interface PersonForm {
         FirstName: Serenity.StringEditor;
         Lastname: Serenity.StringEditor;
+        Primary_Image: Serenity.ImageUploadEditor;
+        Galery_Image: Serenity.MultipleImageUploadEditor;
         BirthDate: Serenity.DateEditor;
         BirthPlace: Serenity.StringEditor;
         Gender: Serenity.EnumEditor;
@@ -792,6 +800,8 @@ declare namespace MovieDB.MovieData {
         BirthPlace?: string;
         Gender?: Gender;
         Height?: number;
+        Primary_Image?: string;
+        Galery_Image?: string;
     }
     namespace PersonRow {
         const idProperty = "PersonId";
@@ -811,7 +821,9 @@ declare namespace MovieDB.MovieData {
             BirthDate = "BirthDate",
             BirthPlace = "BirthPlace",
             Gender = "Gender",
-            Height = "Height"
+            Height = "Height",
+            Primary_Image = "Primary_Image",
+            Galery_Image = "Galery_Image"
         }
     }
 }
