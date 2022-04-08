@@ -1,5 +1,6 @@
 ﻿namespace MovieDB.MovieData {
     export interface MovieCastForm {
+        MovieId: Serenity.LookupEditor;
         PersonId: Serenity.LookupEditor;
         Character: Serenity.StringEditor;
     }
@@ -19,6 +20,7 @@
                 var w1 = s.StringEditor;
 
                 Q.initFormType(MovieCastForm, [
+                    'MovieId', w0,
                     'PersonId', w0,
                     'Character', w1
                 ]);

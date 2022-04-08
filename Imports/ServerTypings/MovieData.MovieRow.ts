@@ -16,6 +16,11 @@
         export const idProperty = 'MovieId';
         export const nameProperty = 'Title';
         export const localTextPrefix = 'MovieData.Movie';
+        export const lookupKey = 'MovieDB.MovieData';
+
+        export function getLookup(): Q.Lookup<MovieRow> {
+            return Q.getLookup<MovieRow>('MovieDB.MovieData');
+        }
         export const deletePermission = 'Administration:General';
         export const insertPermission = 'Administration:General';
         export const readPermission = 'Administration:General';

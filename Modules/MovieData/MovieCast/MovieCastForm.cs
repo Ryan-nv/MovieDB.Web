@@ -12,7 +12,8 @@ namespace MovieDB.MovieData.Forms
     [BasedOnRow(typeof(MovieCastRow), CheckNames = true)]
     public class MovieCastForm
     {
-        public int PersonId { get; set; }
+        public Int32 MovieId { get; set; }
+        public Int32 PersonId { get; set; }
         public string Character { get; set; }
     }
 }

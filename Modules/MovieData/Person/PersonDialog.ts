@@ -14,5 +14,46 @@ namespace MovieDB.MovieData {
 
         protected form = new PersonForm(this.idPrefix);
 
+        private moviesGrid : PersonMovieGrid;
+
+        constructor () {
+            super();
+
+            this.moviesGrid = new PersonMovieGrid(this.byId("MoviesGrid")); 
+            this.tabs.on("tabsactivate", (_e, _i) => this.arrange());  
+        }
+
+        protected getTemplate() {
+            return `<div id="~_Tabs" class="s-DialogContent">
+            <ul>
+                <li><a href="#~_TabInfo"><span>Person</span></a></li>
+                <li><a href="#~_TabMovies"><span>Movies</span></a></li>
+            </ul>
+            <div id="~_TabInfo" class="tab-pane s-TabInfo">
+            <div id="~_Toolbar" class="s-DialogToolbar">
+            </div>
+                <div class="s-Form">
+                    <form id="~_Form" action="">
+                        <div class="fieldset">
+                            <div id="~_PropertyGrid"></div>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="~_TabMovies" class="tab-pane s-TabMovies">
+                <div id="~_MoviesGrid">
+    
+                </div>
+            </div>
+        </div>`;
+        }
+        
+        protected afterLoadEntity()
+        {
+            super.afterLoadEntity();
+
+            this.moviesGrid.personID = this.entityId;
+        }
     }
 }

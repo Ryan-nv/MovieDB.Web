@@ -11,13 +11,13 @@
         MovieReleaseDate?: string;
         MovieRuntime?: number;
         MovieKind?: number;
+        PersonFullName?: string;
         PersonFirstName?: string;
         PersonLastname?: string;
         PersonBirthDate?: string;
         PersonBirthPlace?: string;
         PersonGender?: number;
         PersonHeight?: number;
-        PersonFullName?: string;
     }
 
     export namespace MovieCastRow {
@@ -41,13 +41,13 @@
             MovieReleaseDate = "MovieReleaseDate",
             MovieRuntime = "MovieRuntime",
             MovieKind = "MovieKind",
+            PersonFullName = "PersonFullName",
             PersonFirstName = "PersonFirstName",
             PersonLastname = "PersonLastname",
             PersonBirthDate = "PersonBirthDate",
             PersonBirthPlace = "PersonBirthPlace",
             PersonGender = "PersonGender",
-            PersonHeight = "PersonHeight",
-            PersonFullName = "PersonFullName"
+            PersonHeight = "PersonHeight"
         }
     }
 }

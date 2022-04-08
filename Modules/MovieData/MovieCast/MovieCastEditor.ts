@@ -1,7 +1,7 @@
 namespace MovieDB.MovieData 
 {
     @Serenity.Decorators.registerEditor("MovieDB.MovieData.MovieCastEditor")
-    export class MovieCastEditor extends Serenity.Extensions.GridEditorBase<MovieCastRow>{
+    export class MovieCastEditor extends Serenity.Extensions.GridEditorBase<MovieCastRow> {
         protected getColunmsKey () { return MovieCastColumns.columnsKey; }
         protected getDialogType () { return MovieCastEditorDialog; }
         protected getLocalTextPrefix () { return MovieCastRow.localTextPrefix; }

@@ -560,6 +560,7 @@ declare namespace MovieDB.MovieData {
 }
 declare namespace MovieDB.MovieData {
     interface MovieCastForm {
+        MovieId: Serenity.LookupEditor;
         PersonId: Serenity.LookupEditor;
         Character: Serenity.StringEditor;
     }
@@ -582,13 +583,13 @@ declare namespace MovieDB.MovieData {
         MovieReleaseDate?: string;
         MovieRuntime?: number;
         MovieKind?: number;
+        PersonFullName?: string;
         PersonFirstName?: string;
         PersonLastname?: string;
         PersonBirthDate?: string;
         PersonBirthPlace?: string;
         PersonGender?: number;
         PersonHeight?: number;
-        PersonFullName?: string;
     }
     namespace MovieCastRow {
         const idProperty = "MovieCastId";
@@ -610,13 +611,13 @@ declare namespace MovieDB.MovieData {
             MovieReleaseDate = "MovieReleaseDate",
             MovieRuntime = "MovieRuntime",
             MovieKind = "MovieKind",
+            PersonFullName = "PersonFullName",
             PersonFirstName = "PersonFirstName",
             PersonLastname = "PersonLastname",
             PersonBirthDate = "PersonBirthDate",
             PersonBirthPlace = "PersonBirthPlace",
             PersonGender = "PersonGender",
-            PersonHeight = "PersonHeight",
-            PersonFullName = "PersonFullName"
+            PersonHeight = "PersonHeight"
         }
     }
 }
@@ -646,7 +647,6 @@ declare namespace MovieDB.MovieData {
     interface MovieForm {
         Title: Serenity.StringEditor;
         Description: Serenity.TextAreaEditor;
-        CastList: MovieCastEditor;
         Storyline: Serenity.TextAreaEditor;
         Year: Serenity.IntegerEditor;
         ReleaseDate: Serenity.DateEditor;
@@ -720,6 +720,8 @@ declare namespace MovieDB.MovieData {
         const idProperty = "MovieId";
         const nameProperty = "Title";
         const localTextPrefix = "MovieData.Movie";
+        const lookupKey = "MovieDB.MovieData";
+        function getLookup(): Q.Lookup<MovieRow>;
         const deletePermission = "Administration:General";
         const insertPermission = "Administration:General";
         const readPermission = "Administration:General";
@@ -773,6 +775,11 @@ declare namespace MovieDB.MovieData {
         static formKey: string;
         private static init;
         constructor(prefix: string);
+    }
+}
+declare namespace MovieDB.MovieData {
+    class PersonMovieColumns {
+        static columnsKey: string;
     }
 }
 declare namespace MovieDB.MovieData {
@@ -1185,6 +1192,10 @@ declare namespace MovieDB.MovieData {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: PersonForm;
+        private moviesGrid;
+        constructor();
+        protected getTemplate(): string;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace MovieDB.MovieData {
@@ -1196,5 +1207,21 @@ declare namespace MovieDB.MovieData {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace MovieDB.MovieData {
+    class PersonMovieGrid extends Serenity.EntityGrid<MovieCastRow, any> {
+        protected getColumnsKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getButtons(): any;
+        protected getInitialTitle(): any;
+        protected usePager(): boolean;
+        protected getGridCanLoad(): boolean;
+        private _personID;
+        get personID(): number;
+        set personID(value: number);
     }
 }

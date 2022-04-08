@@ -22,6 +22,7 @@ namespace MovieDB.MovieData
         }
 
         [DisplayName("Movie"), NotNull, ForeignKey("Movie", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitle")]
+        [LookupEditor(typeof(MovieRow))]
         public int? MovieId
         {
             get => fields.MovieId[this];
@@ -29,7 +30,7 @@ namespace MovieDB.MovieData
         }
 
         [DisplayName("Person"), NotNull, ForeignKey("Person", "PersonId"), LeftJoin("jPerson"), TextualField("PersonFirstName")]
-        [LookupEditor(typeof(PersonRow))]
+        [LookupEditor(typeof(PersonRow), InplaceAdd = true)]
         public int? PersonId
         {
             get => fields.PersonId[this];
@@ -91,7 +92,7 @@ namespace MovieDB.MovieData
             get => fields.MovieKind[this];
             set => fields.MovieKind[this] = value;
         }
-        [DisplayName("Actor/Actress"), Expression("CONCAT(T0.[FirstName],CONCAT(' ',T1.[LastName]))")]
+        [DisplayName("Actor/Actress"), Expression("CONCAT(JPerson.[FirstName],CONCAT(' ',JPerson.[LastName]))")]
         public string PersonFullName
         {
             get => fields.PersonFullName[this];
@@ -163,14 +164,13 @@ namespace MovieDB.MovieData
             public DateTimeField MovieReleaseDate;
             public Int32Field MovieRuntime;
             public Int32Field MovieKind;
-
+            public StringField PersonFullName;
             public StringField PersonFirstName;
             public StringField PersonLastname;
             public DateTimeField PersonBirthDate;
             public StringField PersonBirthPlace;
             public Int32Field PersonGender;
             public Int32Field PersonHeight;
-            public StringField PersonFullName;
         }
     }
 }

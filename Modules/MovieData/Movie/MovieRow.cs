@@ -13,6 +13,7 @@ namespace MovieDB.MovieData
     [DisplayName("Movie"), InstanceName("Movie")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript("MovieDB.MovieData")]
     public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Movie Id"), Identity, IdProperty]
